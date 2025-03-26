@@ -1,0 +1,63 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}" >
+  {% tailwind_css %}
+</head>
+<body>
+  <header class="w-full bg-gradient-to-r from-[#2ab3bd] to-[#2eadec]">
+    <div class="contain">
+      <section class="flex justify-between h-[80px] px-5 py-2 ">
+        <figure>
+          <img src="{% static 'core/img/logo.png' %}" class="h-[60px]" alt="">
+        </figure>
+        <nav class="flex justify-center items-center">
+          <ul class="flex flex-row gap-5">
+            <li class="nav__item {% if request.path == '/devices/' %}activate{% endif %}">
+              <a href="{% url 'usuario' %}">Usuarios</a>
+            </li>
+            <li class="nav__item {% if request.path == '/devices/computadora' %}activate{% endif %}">
+              <a href="{% url 'computadora' %}">Computadoras</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/mouse' %}activate{% endif %}">
+              <a href="{% url 'mouse' %}">Mouses</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/teclado' %}activate{% endif %}">
+              <a href="{% url 'teclado' %}">Teclados</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/monitor' %}activate{% endif %}">
+              <a href="{% url 'monitor' %}">Monitores</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/camara' %}activate{% endif %}">
+              <a href="{% url 'camara' %}">Cámaras</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/audifono' %}activate{% endif %}">
+              <a href="{% url 'audifono' %}">Audífonos</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/estabilizador' %}activate{% endif %}">
+              <a href="{% url 'estabilizador' %}">Estabilizadores</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/cooler' %}activate{% endif %}">
+              <a href="{% url 'cooler' %}">Coolers</a>
+            </li>
+            <li class="nav__item {%  if request.path == '/devices/supresor' %}activate{% endif %}">
+              <a href="{% url 'supresor' %}">Supresores</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </header>
+  {% block content %}{% endblock %}
+  <footer class="w-full">
+    <section class="contain">
+      <p>Todos los derechos reservados @ 2024</p>
+    </section>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block title %}Teclados | djcadaniel {% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="w-full">
+  <div class="contain">
+    <h2 class="text-center text-[#1CA4EA] text-4xl py-10">Teclados <span class="text-[#2AB3BF]">TI</span></h2>
+    <div class="full h-[70vh] overflow-scroll">
+      <div class="grid grid-cols-4 justify-center items-center text-center bg-[#58b4e1] text-white py-2 font-bold">
+        <div>Código</div>
+        <div>Marca</div>
+        <div>Fecha-Creación</div>
+        <div>Fecha-Actualización</div>
+      </div>
+      <div class="tbl">
+        {% for user in teclados %}
+        <div class="bg-orange-300 grid grid-cols-5">
+          <div>{{ user.code }}</div>
+          <div>{{ user.name }}</div>
+          <div>{{ user.created|date:"d/m/Y" }}</div>
+          <div>{{ user.updated|date:"d/m/Y" }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

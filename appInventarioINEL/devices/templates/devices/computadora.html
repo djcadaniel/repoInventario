@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% block title %}Computadoras | djcadaniel {% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="w-full">
+  <div class="contain">
+    <h2 class="text-center text-[#1CA4EA] text-4xl py-10">Equipos de <span class="text-[#2AB3BF]">Cómputo</span></h2>
+    <div class="full h-[70vh] overflow-scroll">
+      <div class="grid grid-cols-11 justify-center items-center text-center bg-[#58b4e1] text-white py-2 font-bold">
+        <div>Código</div>
+        <div>Tipo</div>
+        <div>Marca</div>
+        <div>Modelo</div>
+        <div>Serie</div>
+        <div>Procesador</div>
+        <div>RAM</div>
+        <div>Disco Duro</div>
+        <div>Tarjeta de Video</div>
+        <div>Observación</div>
+        <div>Garantía</div>
+      </div>
+      <div class="tbl">
+        {% for computer in computadoras %}
+        <div class="bg-orange-300 grid grid-cols-11">
+          <div class="flex justify-center items-center py-3">{{computer.codigo}}</div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.categories.all %}
+             {{ com.name }}
+            {% endfor %}
+          </div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.marcas.all %}
+             {{ com.name }}
+            {% endfor %}
+          </div>
+          <div class="flex justify-center items-center py-3">{{ computer.modelo }}</div>
+          <div class="flex justify-center items-center py-3">{{ computer.serie }}</div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.processors.all %}
+              {{ com.name }}
+            {% endfor %}
+          </div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.rams.all %}
+              {{ com.name }}
+            {% endfor %}
+          </div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.discos.all %}
+              {{ com.name }}
+            {% endfor %}
+          </div>
+          <div class="flex justify-center items-center py-3">{{ computer.tarjetaVideo }}</div>
+          <div class="flex justify-center items-center py-3">{{ computer.content }}</div>
+          <div class="flex justify-center items-center py-3">
+            {% for com in computer.warrantys.all %}
+              {{ com.name }}
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  </div>
+{% endblock %}

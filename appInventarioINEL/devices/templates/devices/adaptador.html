@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% block title %}Adaptador | djcadaniel {% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="w-full bg-yellow-600">
+  <div class="contain">
+    <h2>ADAPTADORES DE INTERNET</h2>
+    <div class="grid grid-cols-5 justify-center items-center">
+      <div>Usuario</div>
+      <div>Area</div>
+      <div>Puesto</div>
+      <div>Fecha-Creación</div>
+      <div>Fecha-Actualización</div>
+    </div>
+    {% for user in workers %}
+    <div class="bg-orange-300 grid grid-cols-5">
+      <div>{{user.name}}</div>
+      <div>
+        {% for area in user.area.all %}
+         {{ area.name }}
+        {% endfor %}
+      </div>
+      <div>
+        {% for area in user.puesto.all %}
+         {{ area.name }}
+        {% endfor %}
+      </div>
+      <div>
+        {{ user.created|date:"d/m/Y" }}
+      </div>
+      <div>
+        {{ user.updated|date:"d/m/Y" }}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  </div>
+{% endblock %}

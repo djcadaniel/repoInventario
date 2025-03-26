@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block title %}Cámara | djcadaniel {% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="w-full ">
+  <div class="contain">
+    <h2 class="text-center text-[#1CA4EA] text-4xl py-10">Cámaras <span class="text-[#2AB3BF]">TI</span></h2>
+    <div class="full h-[70vh] overflow-scroll">
+      <div class="grid grid-cols-4 justify-center items-center text-center bg-[#58b4e1] text-white py-2 font-bold">
+        <div>Código</div>
+        <div>Marca</div>
+        <div>Fecha-Creación</div>
+        <div>Fecha-Actualización</div>
+      </div>
+      <div class="tbl">
+        {% for user in camaras %}
+        <div class="bg-orange-300 grid grid-cols-4">
+          <div class="flex justify-center items-center py-3">{{ user.code }}</div>
+          <div class="flex justify-center items-center py-3">{{ user.name }}</div>
+          <div class="flex justify-center items-center py-3">{{ user.created|date:"d/m/Y" }}</div>
+          <div class="flex justify-center items-center py-3">{{ user.updated|date:"d/m/Y" }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
