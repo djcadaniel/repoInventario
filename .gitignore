@@ -1,20 +1,46 @@
-# Archivos Python
+# Entornos virtuales (local)
+.env/
+.venv/
+venv/
+env/
+bin/
+lib/
+include/
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+*.egg
+*.manifest
+*.spec
 
-# Entorno virtual
-env/
-venv/
-
-# Archivos de configuración
-*.env
+# Django
 *.sqlite3
+db.sqlite3
+/media/
+/staticfiles/
+/static/
 
-# Carpetas estáticas y de medios
-static/
-media/
+# Variables de entorno
+.env
+.env.local
+.env.production
+.env.sample
+.env*.local
 
-# Otros archivos
-.DS_Store
+# IDE/Editores
+.vscode/
 .idea/
+.DS_Store
+*.swp
+*.swo
+*~
+*.bak
+
+# Render (opcional)
+.render/
