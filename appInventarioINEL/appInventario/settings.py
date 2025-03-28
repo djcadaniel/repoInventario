@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'appInventario.wsgi.application'
+WSGI_APPLICATION = 'appInventarioINEL.appInventario.wsgi.application'
 
 
 # Database
