@@ -147,8 +147,14 @@ USE_TZ = True
 
 # /*************/
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'core/static'),  # Ruta a tus archivos estáticos
+    os.path.join(BASE_DIR, 'theme/static'),  # Para Tailwind
+]
+
+# Configuración para producción
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
